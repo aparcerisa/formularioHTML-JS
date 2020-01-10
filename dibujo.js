@@ -4,6 +4,8 @@ boton.addEventListener ("click",dibujoPorCick);
 
 var d=document.getElementById("dibujito");
 var lienzo = d.getContext ("2d");
+var ancho = d.width;
+
 
 function dibujarLinea (color, xinicial, yinicial, xfinal, yfinal)
 {
@@ -22,16 +24,19 @@ function dibujoPorCick()
   var l=0;
   var yi,xf;
   var colorcito = "#FAA";
+  var espacio = 0;
+
+  espacio = ancho/lineas;
 
   for (l= 0; l < lineas; l++)
   {
-    yi = 10 *l;
-    xf = 10 * (l+1);
-    dibujarLinea (colorcito, 0 , yi, xf, 300 );
+    yi = espacio *l;
+    xf = espacio * (l+1);
+    dibujarLinea (colorcito, 0 , yi, xf, ancho );
     console.log ("linea " + l);
   }
 
-  dibujarLinea (colorcito, 1,1,1,299);
-  dibujarLinea (colorcito, 1,299,299,299);
+  dibujarLinea (colorcito, 1,1,1,ancho -1);
+  dibujarLinea (colorcito, 1,ancho -1,ancho -1,ancho -1);
 
 }
